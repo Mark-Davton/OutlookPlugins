@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <assemblyIdentity name="ADXOutlook, PublicKeyToken=ae64e5a259d7efca" imageRuntimeVersion="v4.0.30319" />
+  <loaderSettings generateLogFile="true" shadowCopyEnabled="false" privileges="user" minOfficeVersionSupported="16" />
+</configuration>
