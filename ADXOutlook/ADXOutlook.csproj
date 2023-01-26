@@ -37,6 +37,11 @@
   <ItemGroup>
     <Reference Include="AddinExpress.OL.2005, Version=10.1.4703.0, Culture=neutral, PublicKeyToken=e69a7e0f3592d2b8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Outlook.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Outlook.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,13 +60,10 @@
       <HintPath>Interops\Office.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Office.Interop.Outlook.dll">
-      <HintPath>Interops\Microsoft.Office.Interop.Outlook.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Loader\adxloader.dll.manifest" />
+    <None Include="packages.config" />
     <!--<None Include="ADXOutlook.snk" /> -->
   </ItemGroup>
   <ItemGroup>
@@ -75,11 +77,22 @@
     <Compile Include="AddinModule.Designer.cs">
       <DependentUpon>AddinModule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Business Logic\Debug.cs" />
+    <Compile Include="Business Logic\OutlookHelper.cs" />
+    <Compile Include="Presentation\ADXForms\adxMainPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentation\ADXForms\adxMainPanel.Designer.cs">
+      <DependentUpon>adxMainPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddinModule.resx">
       <DependentUpon>AddinModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentation\ADXForms\adxMainPanel.resx">
+      <DependentUpon>adxMainPanel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

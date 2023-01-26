@@ -30,6 +30,8 @@
             this.components = new System.ComponentModel.Container();
             this.adxOlExplorerMainMenu1 = new AddinExpress.MSO.ADXOlExplorerMainMenu(this.components);
             this.adxCommandBarButton1 = new AddinExpress.MSO.ADXCommandBarButton(this.components);
+            this.adxOlFormsManager1 = new AddinExpress.OL.ADXOlFormsManager(this.components);
+            this.adxOlFormsCollectionItem1 = new AddinExpress.OL.ADXOlFormsCollectionItem(this.components);
             // 
             // adxOlExplorerMainMenu1
             // 
@@ -49,15 +51,29 @@
             this.adxCommandBarButton1.UpdateCounter = 3;
             this.adxCommandBarButton1.Click += new AddinExpress.MSO.ADXClick_EventHandler(this.adxCommandBarButton1_Click);
             // 
+            // adxOlFormsManager1
+            // 
+            this.adxOlFormsManager1.Items.Add(this.adxOlFormsCollectionItem1);
+            this.adxOlFormsManager1.SetOwner(this);
+            // 
+            // adxOlFormsCollectionItem1
+            // 
+            this.adxOlFormsCollectionItem1.ExplorerItemTypes = AddinExpress.OL.ADXOlExplorerItemTypes.olMailItem;
+            this.adxOlFormsCollectionItem1.ExplorerLayout = AddinExpress.OL.ADXOlExplorerLayout.DockRight;
+            this.adxOlFormsCollectionItem1.FormClassName = "ADXOutlook.Presentation.ADXForms.adxMainPanel";
+            // 
             // AddinModule
             // 
             this.AddinName = "ADXOutlook";
             this.SupportedApps = AddinExpress.MSO.ADXOfficeHostApp.ohaOutlook;
+            this.AddinStartupComplete += new AddinExpress.MSO.ADXEvents_EventHandler(this.AddinModule_AddinStartupComplete);
 
         }
         #endregion
         private AddinExpress.MSO.ADXOlExplorerMainMenu adxOlExplorerMainMenu1;
         private AddinExpress.MSO.ADXCommandBarButton adxCommandBarButton1;
+        private AddinExpress.OL.ADXOlFormsManager adxOlFormsManager1;
+        private AddinExpress.OL.ADXOlFormsCollectionItem adxOlFormsCollectionItem1;
     }
 }
 

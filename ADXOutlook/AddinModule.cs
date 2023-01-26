@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Windows.Forms;
 using AddinExpress.MSO;
 using Outlook = Microsoft.Office.Interop.Outlook;
+using ADXOutlook.Business_Logic;
 
 namespace ADXOutlook
 {
@@ -66,15 +67,15 @@ namespace ADXOutlook
                 return (HostApplication as Outlook._Application);
             }
         }
-
-        //private void adxRibbonButton1_OnClick(object sender, IRibbonControl control, bool pressed)
-        //{
-        //    MessageBox.Show("Hello world");
-        //}
-
         private void adxCommandBarButton1_Click(object sender)
         {
             MessageBox.Show("Hello world");
+        }
+
+        private void AddinModule_AddinStartupComplete(object sender, EventArgs e)
+        {
+            Debug.InitialiseTrace();
+            Debug.DebugMessage(3, "AddinModule : Addin Startup Completed");
         }
     }
 }
